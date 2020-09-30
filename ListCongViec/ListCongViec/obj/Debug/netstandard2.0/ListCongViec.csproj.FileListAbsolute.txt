@@ -1,0 +1,39 @@
+D:\Thực tập\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\bin\Debug\netstandard2.0\ListCongViec.dll.config
+D:\Thực tập\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\bin\Debug\netstandard2.0\ListCongViec.deps.json
+D:\Thực tập\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\bin\Debug\netstandard2.0\ListCongViec.dll
+D:\Thực tập\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\bin\Debug\netstandard2.0\ref\ListCongViec.dll
+D:\Thực tập\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\bin\Debug\netstandard2.0\ListCongViec.pdb
+D:\Thực tập\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\obj\Debug\netstandard2.0\ListCongViec.csproj.App.config
+D:\Thực tập\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\obj\Debug\netstandard2.0\App.xaml.g.cs
+D:\Thực tập\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\obj\Debug\netstandard2.0\HienThiChiTietCV.xaml.g.cs
+D:\Thực tập\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\obj\Debug\netstandard2.0\HienThiDSCV.xaml.g.cs
+D:\Thực tập\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+D:\Thực tập\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\obj\Debug\netstandard2.0\QuenMatKhau.xaml.g.cs
+D:\Thực tập\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\obj\Debug\netstandard2.0\ThemMoi.xaml.g.cs
+D:\Thực tập\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\obj\Debug\netstandard2.0\ListCongViec.AssemblyInfoInputs.cache
+D:\Thực tập\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\obj\Debug\netstandard2.0\ListCongViec.AssemblyInfo.cs
+D:\Thực tập\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\obj\Debug\netstandard2.0\ListCongViec.csproj.CoreCompileInputs.cache
+D:\Thực tập\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\obj\Debug\netstandard2.0\XamlC.stamp
+D:\Thực tập\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\obj\Debug\netstandard2.0\ListCongViec.dll
+D:\Thực tập\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\obj\Debug\netstandard2.0\ref\ListCongViec.dll
+D:\Thực tập\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\obj\Debug\netstandard2.0\ListCongViec.pdb
+D:\ThucTap\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\bin\Debug\netstandard2.0\ListCongViec.dll.config
+D:\ThucTap\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\bin\Debug\netstandard2.0\ListCongViec.deps.json
+D:\ThucTap\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\bin\Debug\netstandard2.0\ListCongViec.dll
+D:\ThucTap\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\bin\Debug\netstandard2.0\ref\ListCongViec.dll
+D:\ThucTap\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\bin\Debug\netstandard2.0\ListCongViec.pdb
+D:\ThucTap\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\obj\Debug\netstandard2.0\ListCongViec.csproj.App.config
+D:\ThucTap\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\obj\Debug\netstandard2.0\ListCongViec.csprojAssemblyReference.cache
+D:\ThucTap\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\obj\Debug\netstandard2.0\App.xaml.g.cs
+D:\ThucTap\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\obj\Debug\netstandard2.0\HienThiChiTietCV.xaml.g.cs
+D:\ThucTap\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\obj\Debug\netstandard2.0\HienThiDSCV.xaml.g.cs
+D:\ThucTap\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+D:\ThucTap\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\obj\Debug\netstandard2.0\QuenMatKhau.xaml.g.cs
+D:\ThucTap\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\obj\Debug\netstandard2.0\ThemMoi.xaml.g.cs
+D:\ThucTap\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\obj\Debug\netstandard2.0\ListCongViec.AssemblyInfoInputs.cache
+D:\ThucTap\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\obj\Debug\netstandard2.0\ListCongViec.AssemblyInfo.cs
+D:\ThucTap\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\obj\Debug\netstandard2.0\ListCongViec.csproj.CoreCompileInputs.cache
+D:\ThucTap\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\obj\Debug\netstandard2.0\XamlC.stamp
+D:\ThucTap\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\obj\Debug\netstandard2.0\ListCongViec.dll
+D:\ThucTap\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\obj\Debug\netstandard2.0\ref\ListCongViec.dll
+D:\ThucTap\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\obj\Debug\netstandard2.0\ListCongViec.pdb

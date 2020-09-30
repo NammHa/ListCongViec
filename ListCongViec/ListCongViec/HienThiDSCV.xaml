@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ListCongViec.HienThiDSCV"
+             NavigationPage.HasBackButton="False">
+    <NavigationPage.TitleView>
+        <Label Text="DANH SÁCH CÔNG VIỆC" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="25"></Label>
+    </NavigationPage.TitleView>
+    <ScrollView>
+        <StackLayout>
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+
+                <Button Text="Đăng xuất"
+                        BackgroundColor="#d45050"
+                        FontAttributes="Bold" 
+                        Clicked="ButtonDangXuat_Clicked" 
+                        Grid.Column="0" 
+                        Grid.Row="0"/>
+                <Button Text="Thêm mới"
+                        BackgroundColor="#14b6e3"
+                        FontAttributes="Bold" 
+                        Command="{Binding AddCongViec}" 
+                        Grid.Column="1" 
+                        Grid.Row="0" />
+                <Button Text="Chỉnh sửa"
+                        BackgroundColor="#14b6e3"
+                        FontAttributes="Bold" 
+                        Grid.ColumnSpan="2"
+                        Grid.Row="1"
+                        Margin="100,0,100,0"/>
+                <!--<Button Text="Xóa"
+                        BackgroundColor="#d45050"
+                        FontAttributes="Bold"  
+                        Grid.Column="1" 
+                        Grid.Row="1"/>-->
+            </Grid>
+            <Label Text="Tìm kiếm" 
+               HorizontalOptions="CenterAndExpand" 
+               FontAttributes="Bold" 
+               FontSize="25" 
+               Margin="50,0,50,0" 
+               TextColor="Black"/>
+            <SearchBar TextChanged="SearchBar_TextChanged" Placeholder="Nhập thông tin cần tìm kiếm"/>
+
+            <Frame BackgroundColor="#5190f5" BorderColor="DarkSlateGray" HeightRequest="60" Padding="0" >
+                <Grid Padding="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2.5*"/>
+                        <ColumnDefinition Width="2.5*"/>
+                        <ColumnDefinition Width="2.5*"/>
+                        <ColumnDefinition Width="2.5*"/>
+                        <ColumnDefinition Width="2.5*"/>
+                        <ColumnDefinition Width="2.5*"/>
+                        <ColumnDefinition Width="2.5*"/>
+                        <ColumnDefinition Width="2.5*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Margin="10,0,10,0" Text="Tên công việc" VerticalOptions="Center" FontAttributes="Bold" Grid.Column="0" HorizontalTextAlignment="Center" FontSize="15"/>
+                    <Label Margin="10,0,10,0" Text="Tên hệ thống" VerticalOptions="Center" FontAttributes="Bold" Grid.Column="1" HorizontalTextAlignment="Center" FontSize="15"/>
+                    <Label Margin="10,0,10,0" Text="PLHĐ" VerticalOptions="Center" FontAttributes="Bold"  Grid.Column="2" HorizontalTextAlignment="Center" FontSize="15"/>
+                    <Label Margin="10,0,10,0" Text="Người chủ trì" VerticalOptions="Center"  FontAttributes="Bold" Grid.Column="3" HorizontalTextAlignment="Center" FontSize="15"/>
+                    <Label Margin="10,0,10,0" Text="Ngày bắt đầu" VerticalOptions="Center"  FontAttributes="Bold" Grid.Column="4" HorizontalTextAlignment="Center" FontSize="15"/>
+                    <Label Margin="10,0,10,0" Text="Ngày kết thúc" VerticalOptions="Center"  FontAttributes="Bold" Grid.Column="5" HorizontalTextAlignment="Center" FontSize="15"/>
+                    <Label Margin="10,0,10,0" Text="Kết quả" VerticalOptions="Center"  FontAttributes="Bold" Grid.Column="6" HorizontalTextAlignment="Center" FontSize="15"/>
+                    <Label Margin="10,0,10,0" Text="Ghi chú" VerticalOptions="Center"  FontAttributes="Bold" Grid.Column="7" HorizontalTextAlignment="Center" FontSize="15"/>
+
+                    <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="0" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
+                    <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
+                    <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="2" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
+                    <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="3" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
+                    <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="4" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
+                    <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="5" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
+                    <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="6" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
+                    <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="7" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
+                </Grid>
+            </Frame>
+            <ListView x:Name="LV" SeparatorVisibility="None" SelectionMode="None" 
+                      HasUnevenRows="False" IsPullToRefreshEnabled="True" ItemTapped="LV_ItemTapped" RowHeight="100" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame  Padding="0" BorderColor="DarkSlateGray">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2.5*"/>
+                                        <ColumnDefinition Width="2.5*"/>
+                                        <ColumnDefinition Width="2.5*"/>
+                                        <ColumnDefinition Width="2.5*"/>
+                                        <ColumnDefinition Width="2.5*"/>
+                                        <ColumnDefinition Width="2.5*"/>
+                                        <ColumnDefinition Width="2.5*"/>
+                                        <ColumnDefinition Width="2.5*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <!--<Label Margin="10,0,10,0" Text="{Binding TEN_CONG_VIEC}" VerticalOptions="Center" Grid.Column="0"  TextColor="Black"/>
+                                    <Label Margin="10,0,10,0" Text="{Binding TEN}"   VerticalOptions="Center" Grid.Column="1" TextColor="Black" />
+                                    <Label Margin="10,0,10,0" Text="{Binding MA_HOP_DONG}"  VerticalOptions="Center" Grid.Column="2" TextColor="Black" />
+                                    <Label Margin="10,0,10,0" Text="{Binding FullName}"   VerticalOptions="Center" Grid.Column="3" TextColor="Black" />
+                                    <Label Margin="10,0,10,0" Text="{Binding NGAY_BAT_DAU}"  VerticalOptions="Center" Grid.Column="4" TextColor="Black" />
+                                    <Label Margin="10,0,10,0" Text="{Binding NGAY_KET_THUC}" VerticalOptions="Center"  Grid.Column="5" TextColor="Black" />
+                                    <Label Margin="10,0,10,0" Text="{Binding KET_QUA_CV}"  VerticalOptions="Center" Grid.Column="6" TextColor="Black" />
+                                    <Label Margin="10,0,10,0" Text="{Binding GHI_CHU}" VerticalOptions="Center"  Grid.Column="7" TextColor="Black" />-->
+
+                                    <Label Margin="10,0,10,0" Text="{Binding TEN_CONG_VIEC}" VerticalOptions="Center" Grid.Column="0"  TextColor="Black"/>
+                                    <Label Margin="10,0,10,0" Text="{Binding TEN}"   VerticalOptions="Center" Grid.Column="1" TextColor="Black" />
+                                    <Label Margin="10,0,10,0" Text="{Binding MA_HOP_DONG}"  VerticalOptions="Center" Grid.Column="2" TextColor="Black" />
+                                    <Label Margin="10,0,10,0" Text="{Binding FullName}"   VerticalOptions="Center" Grid.Column="3" TextColor="Black" />
+                                    <Label Margin="10,0,10,0" Text="{Binding NGAY_BAT_DAU}"  VerticalOptions="Center" Grid.Column="4" TextColor="Black" />
+                                    <Label Margin="10,0,10,0" Text="{Binding NGAY_KET_THUC}" VerticalOptions="Center"  Grid.Column="5" TextColor="Black" />
+                                    <Label Margin="10,0,10,0" Text="{Binding KET_QUA_CV}"  VerticalOptions="Center" Grid.Column="6" TextColor="Black" />
+                                    <Label Margin="10,0,10,0" Text="{Binding GHI_CHU}" VerticalOptions="Center"  Grid.Column="7" TextColor="Black" />
+
+
+                                    <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1"  Grid.Column="0" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
+                                    <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1"  Grid.Column="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"/>
+                                    <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1"  Grid.Column="2" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"/>
+                                    <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1"  Grid.Column="3" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"/>
+                                    <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1"  Grid.Column="4" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"/>
+                                    <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1"  Grid.Column="5" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"/>
+                                    <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1"  Grid.Column="6" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"/>
+                                    <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1"  Grid.Column="7" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"/>
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

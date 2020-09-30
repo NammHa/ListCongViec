@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ListCongViec.MainPage">
+    <ScrollView>
+        <StackLayout BackgroundColor="White">
+            <Image Source="unnamed.jpg"
+                   HeightRequest="273"
+                   WidthRequest="182"
+                   HorizontalOptions="CenterAndExpand"/>
+            <Label Text="ỨNG DỤNG HIỂN THỊ DANH SÁCH CÔNG VIỆC" 
+                   FontAttributes="Bold"
+                   FontSize="25"
+                   HorizontalTextAlignment="Center"
+                   TextColor="Black"/>
+            <Entry Placeholder="UserName" Margin="10"/>
+            <Entry Placeholder="Password" Margin="10"/>
+            <CheckBox Margin="10,0,0,0" Color="Black"/>
+            <Label Text="Remember me" 
+                   Margin="15,0,0,0" 
+                   FontSize="15"
+                   TextColor="Black" 
+                   FontAttributes="Bold"/>
+            <Button Text="Đăng nhập" 
+                    Margin="10" 
+                    HorizontalOptions="CenterAndExpand" 
+                    FontAttributes="Bold"
+                    Clicked="ButtonLogin_Clicked"/>
+            <Button Text="Quên mật khẩu?"
+                    Clicked="ButtonQuenMatKhau_Clicked"
+                    Margin="10" 
+                    HorizontalOptions="FillAndExpand" 
+                    FontAttributes="Bold"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
