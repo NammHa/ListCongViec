@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListCongViec.iOS", "ListCon
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListCongViec", "ListCongViec\ListCongViec\ListCongViec.csproj", "{06FA1139-AA00-4912-8881-25B9D4FB2A06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QLCV-API", "QLCV-API\QLCV-API\QLCV-API.csproj", "{619DFE01-784E-41AB-B128-7B9FBC956BD1}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,18 +73,6 @@ Global
 		{06FA1139-AA00-4912-8881-25B9D4FB2A06}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{06FA1139-AA00-4912-8881-25B9D4FB2A06}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{06FA1139-AA00-4912-8881-25B9D4FB2A06}.Release|iPhoneSimulator.Deploy.0 = Release|Any CPU
-		{619DFE01-784E-41AB-B128-7B9FBC956BD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{619DFE01-784E-41AB-B128-7B9FBC956BD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{619DFE01-784E-41AB-B128-7B9FBC956BD1}.Debug|iPhone.ActiveCfg = Debug|Any CPU
-		{619DFE01-784E-41AB-B128-7B9FBC956BD1}.Debug|iPhone.Build.0 = Debug|Any CPU
-		{619DFE01-784E-41AB-B128-7B9FBC956BD1}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{619DFE01-784E-41AB-B128-7B9FBC956BD1}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{619DFE01-784E-41AB-B128-7B9FBC956BD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{619DFE01-784E-41AB-B128-7B9FBC956BD1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{619DFE01-784E-41AB-B128-7B9FBC956BD1}.Release|iPhone.ActiveCfg = Release|Any CPU
-		{619DFE01-784E-41AB-B128-7B9FBC956BD1}.Release|iPhone.Build.0 = Release|Any CPU
-		{619DFE01-784E-41AB-B128-7B9FBC956BD1}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{619DFE01-784E-41AB-B128-7B9FBC956BD1}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

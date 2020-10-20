@@ -10,7 +10,7 @@ namespace ListCongViec
         public NavigationPage HienThiDSCV;
         public NavigationPage QuenMatKhau;
         public NavigationPage ThemMoi;
-        public NavigationPage HienThiChiTietCV;
+        public NavigationPage EditCV;
         public App()
         {
             InitializeComponent();
@@ -20,7 +20,8 @@ namespace ListCongViec
             QuenMatKhau = new NavigationPage(new QuenMatKhau());
             ThemMoi = new NavigationPage(new ThemMoi());
             CongViec cv = null;
-            HienThiChiTietCV = new NavigationPage(new HienThiChiTietCV(cv));
+            EditCV = new NavigationPage(new EditCV());
+           
         }
         protected override void OnStart()
         {

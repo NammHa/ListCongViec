@@ -5,12 +5,14 @@ using System.Linq;
 using System.Text;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 
 namespace ListCongViec
 {
     public class CongViec
     {
-        public int ID { get; set; }
+        public int? ID { get; set; }
         public string TEN_CONG_VIEC { get; set; }
         public int? ID_HE_THONG { get; set; }
         public string TEN { get; set; }
@@ -30,7 +32,7 @@ namespace ListCongViec
         public DateTime NGAY_SUA { get; set; }
         public bool TT_XOA { get; set; }
     }
-
+    
     public class listCV
     {
         public string STATUS { get; set; }
@@ -116,7 +118,17 @@ namespace ListCongViec
         public string STATUS { get; set; }
         public List<NguoiCT> DATA { get; set; }
     }
-
+    
+    public class KQ
+    {
+        public int ID_KET_QUA_CV { get; set; }
+        public string KET_QUA_CV { get; set; }
+    }
+    public class listKQ
+    {
+        public string STATUS { get; set; }
+        public List<KQ> DATA { get; set; }
+    }
 }
 
 

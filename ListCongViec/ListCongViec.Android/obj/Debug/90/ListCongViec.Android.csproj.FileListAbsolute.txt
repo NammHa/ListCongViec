@@ -587,3 +587,5 @@ D:\ThucTap\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec.Android\obj\Deb
 D:\ThucTap\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec.Android\obj\Debug\90\stamp\_GenerateJavaStubs.stamp
 D:\ThucTap\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec.Android\obj\Debug\90\stamp\_GeneratePackageManagerJava.stamp
 D:\ThucTap\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec.Android\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
+D:\ThucTap\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec.Android\obj\Debug\90\res\drawable\edit.png
+D:\ThucTap\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec.Android\obj\Debug\90\res\drawable\trash.png

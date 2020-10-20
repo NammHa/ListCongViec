@@ -10,18 +10,17 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Label Text="Tên công việc" 
                    TextColor="Black" 
@@ -37,12 +36,6 @@
                     FontSize="20"
                     Grid.Column="0"
                     Grid.Row="2"/>
-                <!--<Entry Grid.Column="0"
-                       Grid.Row="3">
-                    <Entry.Behaviors>
-                        <local:NumericValidationBehavior />
-                    </Entry.Behaviors>
-                </Entry>-->
                 <Picker 
                     TitleColor="Black"
                     Title="Click to choose"
@@ -52,6 +45,7 @@
                     Focused="txtTenHT_Focused" 
                     ItemsSource="{x:Binding CongViec}" 
                     ItemDisplayBinding="{x:Binding TEN}"
+                    SelectedIndexChanged="txtTenHT_SelectedIndexChanged"
                     />
                 <Label Text="PLHĐ" 
                    TextColor="Black" 
@@ -66,8 +60,8 @@
                     Focused="txtPLHĐ_Focused" 
                     ItemsSource="{x:Binding CongViec}" 
                     ItemDisplayBinding="{x:Binding MA_HOP_DONG}"
+                    SelectedIndexChanged="txtPLHĐ_SelectedIndexChanged"
                      />
-
                 <Label Text="Ngày bắt đầu"
                    TextColor="Black" 
                    FontSize="20"
@@ -93,7 +87,6 @@
                    FontSize="20"
                    Grid.Column="0"
                    Grid.Row = "6"/>
-
                 <Picker TitleColor="Black"
                     Title="Click to choose"
                     Grid.Column="0"
@@ -101,12 +94,14 @@
                     x:Name="txtChuTri"
                     Focused="txtNCT_Focused" 
                     ItemsSource="{x:Binding CongViec}" 
-                    ItemDisplayBinding="{x:Binding FullName}"/>
-                
-
-
-                <Label Text="Kết quả" 
-                   TextColor="Black" 
+                    ItemDisplayBinding="{x:Binding FullName}"
+                    SelectedIndexChanged="txtChuTri_SelectedIndexChanged"/>
+                <Label Text="Kết quả(*)
+                       
+                       
+                             1: Hoàn thành, 2: Hủy, 3: Đang làm" 
+                       
+                   TextColor="Red" 
                    FontSize="20"
                    Grid.Column="1"
                    Grid.Row = "6"
@@ -114,7 +109,11 @@
                 <Entry Grid.Column="1"
                        Grid.Row="7"
                        x:Name="txtKQ"
-                       Placeholder="Mời nhập kết quả"/>
+                       Placeholder="Mời nhập kết quả">
+                    <Entry.Behaviors>
+                        <local:NumericValidationBehavior />
+                    </Entry.Behaviors>
+                </Entry>
                 <Label Text="Ghi chú" 
                    TextColor="Black" 
                    FontSize="20"
@@ -130,10 +129,9 @@
                     VerticalOptions="Center"
                     Grid.Column="0"
                     Grid.Row="10"
-                     
                     Clicked="Button_Clicked"
+                    x:Name="btnSave"
                         />
-                <!--Command="{Binding SaveCV}"-->
                 <Button Text="Hủy"
                     FontAttributes="Bold"
                     HorizontalOptions="Center"

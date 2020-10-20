@@ -17,29 +17,11 @@ namespace ListCongViec
     public partial class HienThiDSCV : ContentPage
     {
 
-
         public HienThiDSCV()
         {
             InitializeComponent();
-            GetDSCV();
-            BindingContext = new HienThiDSCVViewModel(Navigation);
+            GetDSCV(); 
         }
-        /*private void ButtonAdd_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new ThemMoi());
-
-            CongViec NewCV = new CongViec();
-            NewCV.TEN_CONG_VIEC = null;
-            NewCV.TEN = null;
-            NewCV.MA_HOP_DONG = null;
-            NewCV.FullName = null;
-            NewCV.NGAY_BAT_DAU = null;
-            NewCV.NGAY_KET_THUC = null;
-            NewCV.KET_QUA_CV = null;
-            NewCV.GHI_CHU = null;
-            Navigation.PushAsync(new ThemMoi());
-        }*/
-
         async void ButtonDangXuat_Clicked(object sender, EventArgs e)
         {
             bool answer = await DisplayAlert("Đăng xuất", "Bạn có chắc chắn muốn thoát ra khỏi hệ thống?", "Yes", "No");
@@ -54,9 +36,6 @@ namespace ListCongViec
             HttpClientHandler clientHandler = new HttpClientHandler();
             clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
             HttpClient client = new HttpClient(clientHandler);
-
-            //////HttpClient client = new HttpClient();
-
             var response = await client.GetAsync("https://qlcv-api.conveyor.cloud/api/GetListCV");
             string listCVJSON = await response.Content.ReadAsStringAsync();
             listCV cvobj = new listCV();
@@ -66,18 +45,6 @@ namespace ListCongViec
             cv = cvobj.DATA;
             foreach (var item in cv)
             {
-                /*if (item.ID_KET_QUA_CV == 1)
-                {
-                    item.KET_QUA_CV = "Hoàn thành";
-                }
-                else if (item.ID_KET_QUA_CV == 2)
-                {
-                    item.KET_QUA_CV = "Hủy";
-                }
-                else if (item.ID_KET_QUA_CV == 3)
-                {
-                    item.KET_QUA_CV = "Đang làm";
-                }*/
                 switch (item.ID_KET_QUA_CV)
                 {
                     case 1:
@@ -93,36 +60,15 @@ namespace ListCongViec
                         item.KET_QUA_CV = "";
                         break;
                 }
-
             }
-
             LV.ItemsSource = cv;
         }
-
-        private async void LV_ItemTapped(object sender, ItemTappedEventArgs e)
-        {
-            try
-            {
-                //User user = e.Item as User;
-                CongViec cv = e.Item as CongViec;
-                await Navigation.PushAsync(new HienThiChiTietCV(cv));
-
-            }
-            catch (Exception ex)
-            {
-                await DisplayAlert("Input Error", ex.Message, "OK");
-                return;
-            }
-        }
-
         public async void SearchBar_TextChanged(object Ssender, TextChangedEventArgs e)
         {
             HttpClientHandler clientHandler = new HttpClientHandler();
             clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
             HttpClient client = new HttpClient(clientHandler);
-
-            //////HttpClient client = new HttpClient();
-
+            
             var response = await client.GetAsync("https://qlcv-api.conveyor.cloud/api/GetListCV");
             string listCVJSON = await response.Content.ReadAsStringAsync();
             listCV cvobj = new listCV();
@@ -150,25 +96,66 @@ namespace ListCongViec
             }
             LV.ItemsSource = cv;
 
-
-            //LV.ItemsSource = cvobj.DATA.Where(x => x.TEN_CONG_VIEC.StartsWith(e.NewTextValue));
-
-            //LV.ItemsSource = cvobj.DATA.Where(x => x.TEN.StartsWith(e.NewTextValue));
-
-            //LV.ItemsSource = cvobj.DATA.Where(x => x.MA_HOP_DONG.StartsWith(e.NewTextValue));
-
-            //LV.ItemsSource = cvobj.DATA.Where(x => x.FullName.StartsWith(e.NewTextValue));
-
             LV.ItemsSource = cv.Where(x => Convert.ToString(x.NGAY_BAT_DAU).StartsWith(e.NewTextValue)
             || Convert.ToString(x.NGAY_KET_THUC).StartsWith(e.NewTextValue)
             || x.KET_QUA_CV.StartsWith(e.NewTextValue));
 
-            //LV.ItemsSource = cvobj.DATA.Where(x => Convert.ToString(x.NGAY_KET_THUC).StartsWith(e.NewTextValue));
+        }
 
-            //LV.ItemsSource = cvobj.DATA.Where(x => Convert.ToString(x.ID_KET_QUA_CV).StartsWith(e.NewTextValue));
+        private void btnAdd_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ThemMoi(null));
+        }
 
-            //LV.ItemsSource = cvobj.DATA.Where(x => x.GHI_CHU.StartsWith(e.NewTextValue));
+        private void btnChinhSua_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new EditCV());
+        }
+
+        private  async void TapGestureRecognizer_Tapped_Edit(object sender, EventArgs e)
+        {
+           
+            TappedEventArgs tappedEventArgs = (TappedEventArgs)e;
+            var listCV = LV.ItemsSource as List<CongViec>;
+            CongViec cv = listCV.Where(x => x.ID == (int)tappedEventArgs.Parameter).FirstOrDefault();      
+            await Navigation.PushAsync(new EditCV(cv));
+          
+            
+        }
+
+        private void LV_Refreshing(object sender, EventArgs e)
+        {
+            GetDSCV();
+            LV.IsRefreshing = false;
+        }
+        private async void TapGestureRecognizer_Tapped_Delete(object sender, EventArgs e)
+        {
+            TappedEventArgs tappedEventArgs = (TappedEventArgs)e;
+            var listCV = LV.ItemsSource as List<CongViec>;
+            CongViec cv = listCV.Where(x => x.ID == (int)tappedEventArgs.Parameter).FirstOrDefault();
+
+            CongViec _congviec = new CongViec();
+            if(_congviec != null)
+            {
+                _congviec.ID = cv.ID;
+                _congviec.TT_XOA = cv.TT_XOA;
+            }
+            bool answer = await DisplayAlert("Thông báo", "Bạn có chắc chắn muốn xóa dữ liệu này?", "Yes", "No");
+            Debug.WriteLine("Answer: " + answer);
+            if (answer == true)
+            {
+                string url = "https://qlcv-api.conveyor.cloud/";
+                HttpClient client = new HttpClient();
+                client.BaseAddress = new Uri(url + "api/DeleteCV");
+
+                HttpResponseMessage response = await client.PostAsJsonAsync<CongViec>("DeleteCV", _congviec);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string result = await response.Content.ReadAsStringAsync(); 
+                }
+                await DisplayAlert("Thông báo", "Bạn đã xóa dữ liệu thành công!", "OK");
+            }
         }
     }
 };
-

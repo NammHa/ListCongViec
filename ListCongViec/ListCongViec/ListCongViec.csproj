@@ -26,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="HienThiChiTietCV.xaml">
+    <EmbeddedResource Update="EditCV.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="HienThiDSCV.xaml">

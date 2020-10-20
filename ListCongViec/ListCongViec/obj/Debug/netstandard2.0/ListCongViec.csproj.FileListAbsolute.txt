@@ -25,7 +25,6 @@ D:\ThucTap\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\bin\Debug\netst
 D:\ThucTap\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\obj\Debug\netstandard2.0\ListCongViec.csproj.App.config
 D:\ThucTap\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\obj\Debug\netstandard2.0\ListCongViec.csprojAssemblyReference.cache
 D:\ThucTap\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\obj\Debug\netstandard2.0\App.xaml.g.cs
-D:\ThucTap\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\obj\Debug\netstandard2.0\HienThiChiTietCV.xaml.g.cs
 D:\ThucTap\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\obj\Debug\netstandard2.0\HienThiDSCV.xaml.g.cs
 D:\ThucTap\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
 D:\ThucTap\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\obj\Debug\netstandard2.0\QuenMatKhau.xaml.g.cs
@@ -37,3 +36,4 @@ D:\ThucTap\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\obj\Debug\netst
 D:\ThucTap\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\obj\Debug\netstandard2.0\ListCongViec.dll
 D:\ThucTap\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\obj\Debug\netstandard2.0\ref\ListCongViec.dll
 D:\ThucTap\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\obj\Debug\netstandard2.0\ListCongViec.pdb
+D:\ThucTap\Mobile\Xamarin\ListCongViec\ListCongViec\ListCongViec\obj\Debug\netstandard2.0\EditCV.xaml.g.cs

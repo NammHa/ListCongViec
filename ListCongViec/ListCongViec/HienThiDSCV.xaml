@@ -11,10 +11,8 @@
             <Grid >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
 
@@ -27,20 +25,9 @@
                 <Button Text="Thêm mới"
                         BackgroundColor="#14b6e3"
                         FontAttributes="Bold" 
-                        Command="{Binding AddCongViec}" 
+                        Clicked="btnAdd_Clicked" 
                         Grid.Column="1" 
                         Grid.Row="0" />
-                <Button Text="Chỉnh sửa"
-                        BackgroundColor="#14b6e3"
-                        FontAttributes="Bold" 
-                        Grid.ColumnSpan="2"
-                        Grid.Row="1"
-                        Margin="100,0,100,0"/>
-                <!--<Button Text="Xóa"
-                        BackgroundColor="#d45050"
-                        FontAttributes="Bold"  
-                        Grid.Column="1" 
-                        Grid.Row="1"/>-->
             </Grid>
             <Label Text="Tìm kiếm" 
                HorizontalOptions="CenterAndExpand" 
@@ -61,6 +48,8 @@
                         <ColumnDefinition Width="2.5*"/>
                         <ColumnDefinition Width="2.5*"/>
                         <ColumnDefinition Width="2.5*"/>
+                        <ColumnDefinition Width="2.5*"/>
+                        <ColumnDefinition Width="2.5*"/>
                     </Grid.ColumnDefinitions>
 
                     <Label Margin="10,0,10,0" Text="Tên công việc" VerticalOptions="Center" FontAttributes="Bold" Grid.Column="0" HorizontalTextAlignment="Center" FontSize="15"/>
@@ -71,7 +60,9 @@
                     <Label Margin="10,0,10,0" Text="Ngày kết thúc" VerticalOptions="Center"  FontAttributes="Bold" Grid.Column="5" HorizontalTextAlignment="Center" FontSize="15"/>
                     <Label Margin="10,0,10,0" Text="Kết quả" VerticalOptions="Center"  FontAttributes="Bold" Grid.Column="6" HorizontalTextAlignment="Center" FontSize="15"/>
                     <Label Margin="10,0,10,0" Text="Ghi chú" VerticalOptions="Center"  FontAttributes="Bold" Grid.Column="7" HorizontalTextAlignment="Center" FontSize="15"/>
-
+                    <Label Margin="10,0,10,0" Text="Sửa" VerticalOptions="Center"  FontAttributes="Bold" Grid.Column="8" HorizontalTextAlignment="Center" FontSize="15"/>
+                    <Label Margin="10,0,10,0" Text="Xóa" VerticalOptions="Center"  FontAttributes="Bold" Grid.Column="9" HorizontalTextAlignment="Center" FontSize="15"/>
+                    
                     <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="0" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
                     <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
                     <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="2" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
@@ -80,10 +71,13 @@
                     <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="5" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
                     <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="6" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
                     <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="7" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
+                    <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="8" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
+                    <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="9" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
+                    
                 </Grid>
             </Frame>
             <ListView x:Name="LV" SeparatorVisibility="None" SelectionMode="None" 
-                      HasUnevenRows="False" IsPullToRefreshEnabled="True" ItemTapped="LV_ItemTapped" RowHeight="100" >
+                      HasUnevenRows="False" IsPullToRefreshEnabled="True"  RowHeight="125" Refreshing="LV_Refreshing">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -98,17 +92,9 @@
                                         <ColumnDefinition Width="2.5*"/>
                                         <ColumnDefinition Width="2.5*"/>
                                         <ColumnDefinition Width="2.5*"/>
+                                        <ColumnDefinition Width="2.5*"/>
+                                        <ColumnDefinition Width="2.5*"/>
                                     </Grid.ColumnDefinitions>
-
-                                    <!--<Label Margin="10,0,10,0" Text="{Binding TEN_CONG_VIEC}" VerticalOptions="Center" Grid.Column="0"  TextColor="Black"/>
-                                    <Label Margin="10,0,10,0" Text="{Binding TEN}"   VerticalOptions="Center" Grid.Column="1" TextColor="Black" />
-                                    <Label Margin="10,0,10,0" Text="{Binding MA_HOP_DONG}"  VerticalOptions="Center" Grid.Column="2" TextColor="Black" />
-                                    <Label Margin="10,0,10,0" Text="{Binding FullName}"   VerticalOptions="Center" Grid.Column="3" TextColor="Black" />
-                                    <Label Margin="10,0,10,0" Text="{Binding NGAY_BAT_DAU}"  VerticalOptions="Center" Grid.Column="4" TextColor="Black" />
-                                    <Label Margin="10,0,10,0" Text="{Binding NGAY_KET_THUC}" VerticalOptions="Center"  Grid.Column="5" TextColor="Black" />
-                                    <Label Margin="10,0,10,0" Text="{Binding KET_QUA_CV}"  VerticalOptions="Center" Grid.Column="6" TextColor="Black" />
-                                    <Label Margin="10,0,10,0" Text="{Binding GHI_CHU}" VerticalOptions="Center"  Grid.Column="7" TextColor="Black" />-->
-
                                     <Label Margin="10,0,10,0" Text="{Binding TEN_CONG_VIEC}" VerticalOptions="Center" Grid.Column="0"  TextColor="Black"/>
                                     <Label Margin="10,0,10,0" Text="{Binding TEN}"   VerticalOptions="Center" Grid.Column="1" TextColor="Black" />
                                     <Label Margin="10,0,10,0" Text="{Binding MA_HOP_DONG}"  VerticalOptions="Center" Grid.Column="2" TextColor="Black" />
@@ -117,8 +103,25 @@
                                     <Label Margin="10,0,10,0" Text="{Binding NGAY_KET_THUC}" VerticalOptions="Center"  Grid.Column="5" TextColor="Black" />
                                     <Label Margin="10,0,10,0" Text="{Binding KET_QUA_CV}"  VerticalOptions="Center" Grid.Column="6" TextColor="Black" />
                                     <Label Margin="10,0,10,0" Text="{Binding GHI_CHU}" VerticalOptions="Center"  Grid.Column="7" TextColor="Black" />
+                                    <StackLayout Grid.Column="8" VerticalOptions="Center">
+                                        <Image Source="edit.png" WidthRequest ="25" HeightRequest="25" >
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer
+                                                Tapped="TapGestureRecognizer_Tapped_Edit"
+                                                CommandParameter="{Binding ID}"/>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                    </StackLayout>
 
-
+                                    <StackLayout Grid.Column="9" VerticalOptions="Center">
+                                        <Image Source="trash.png" WidthRequest ="25" HeightRequest="25" >
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer
+                                                Tapped="TapGestureRecognizer_Tapped_Delete"
+                                                CommandParameter="{Binding ID}"/>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                    </StackLayout>
                                     <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1"  Grid.Column="0" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
                                     <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1"  Grid.Column="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"/>
                                     <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1"  Grid.Column="2" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"/>
@@ -127,6 +130,8 @@
                                     <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1"  Grid.Column="5" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"/>
                                     <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1"  Grid.Column="6" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"/>
                                     <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1"  Grid.Column="7" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"/>
+                                    <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1"  Grid.Column="8" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"/>
+                                    <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1"  Grid.Column="9" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"/>
                                 </Grid>
                             </Frame>
                         </ViewCell>

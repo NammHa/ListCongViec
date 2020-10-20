@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:ListCongViec"
+             x:Class="ListCongViec.EditCV">
+    <ScrollView>
+        <StackLayout>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Text="Tên công việc" 
+                   TextColor="Black" 
+                   FontSize="20"
+                   Grid.Row="0"
+                   Grid.ColumnSpan="2"/>
+                <Entry Placeholder="Mời nhập tên công việc"
+                   Grid.ColumnSpan="2"
+                   Grid.Row="1"
+                   x:Name="txtTenCongViec"/>
+                <Label  Text="Tên hệ thống" 
+                    TextColor="Black" 
+                    FontSize="20"
+                    Grid.Column="0"
+                    Grid.Row="2"/>
+                <Picker 
+                    TitleColor="Black"
+                    Title="Click to choose"
+                    Grid.Column="0"
+                    Grid.Row="3"
+                    x:Name="txtTenHT"
+                    Focused="txtTenHT_Focused" 
+                    ItemsSource="{x:Binding CongViec}" 
+                    ItemDisplayBinding="{x:Binding TEN}"
+                    SelectedIndexChanged="txtTenHT_SelectedIndexChanged"
+                    />
+                <Label Text="PLHĐ" 
+                   TextColor="Black" 
+                   FontSize="20"
+                   Grid.Column="1"
+                   Grid.Row = "2"/>
+                <Picker TitleColor="Black"
+                    Title="Click to choose"
+                    Grid.Column="1"
+                    Grid.Row="3"
+                    x:Name="txtPLHĐ"
+                    Focused="txtPLHĐ_Focused" 
+                    ItemsSource="{x:Binding CongViec}" 
+                    ItemDisplayBinding="{x:Binding MA_HOP_DONG}"
+                    SelectedIndexChanged="txtPLHĐ_SelectedIndexChanged"
+                     />
+                <Label Text="Ngày bắt đầu"
+                   TextColor="Black" 
+                   FontSize="20"
+                   Grid.Column="0"
+                   Grid.Row = "4"/>
+                <DatePicker MinimumDate="1/1/2020"
+                        MaximumDate="12/31/2020"
+                        Grid.Column="0"
+                        Grid.Row="5" 
+                        x:Name="DateStart"/>
+                <Label Text="Ngày kết thúc"
+                   TextColor="Black" 
+                   FontSize="20"
+                   Grid.Column="1"
+                   Grid.Row = "4"/>
+                <DatePicker MinimumDate="1/1/2020"
+                        MaximumDate="12/31/2020"
+                        Grid.Column="1"
+                        Grid.Row="5"
+                        x:Name="DateFinish"/>
+                <Label Text="Người chủ trì" 
+                   TextColor="Black" 
+                   FontSize="20"
+                   Grid.Column="0"
+                   Grid.Row = "6"/>
+                <Picker TitleColor="Black"
+                    Title="Click to choose"
+                    Grid.Column="0"
+                    Grid.Row="7"
+                    x:Name="txtChuTri"
+                    Focused="txtNCT_Focused" 
+                    ItemsSource="{x:Binding CongViec}" 
+                    ItemDisplayBinding="{x:Binding FullName}"
+                    SelectedIndexChanged="txtChuTri_SelectedIndexChanged"/>
+                <Label Text="Kết quả(*)
+                       
+                       
+                             1: Hoàn thành, 2: Hủy, 3: Đang làm" 
+                       
+                   TextColor="Red" 
+                   FontSize="20"
+                   Grid.Column="1"
+                   Grid.Row = "6"
+                   />
+                <Entry Grid.Column="1"
+                       Grid.Row="7"
+                       x:Name="txtKQ"
+                       Placeholder="Mời nhập kết quả">
+                    <Entry.Behaviors>
+                        <local:NumericValidationBehavior />
+                    </Entry.Behaviors>
+                </Entry>
+                <Label Text="Ghi chú" 
+                   TextColor="Black" 
+                   FontSize="20"
+                   Grid.ColumnSpan="2"
+                   Grid.Row = "8"/>
+                <Entry Placeholder="Mời nhập ghi chú"
+                   Grid.ColumnSpan="2"
+                   Grid.Row="9"
+                   x:Name="txtGhiChu"/>
+                <Button Text="Cập nhật"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Grid.Column="0"
+                    Grid.Row="10"
+                    Clicked="ButtonCapNhat_Clicked"
+                    x:Name="btnSave"
+                        />
+                <Button Text="Hủy"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Grid.Column="1"
+                    Grid.Row="10"
+                    />
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

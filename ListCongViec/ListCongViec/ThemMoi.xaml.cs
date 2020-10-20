@@ -20,66 +20,26 @@ namespace ListCongViec
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ThemMoi : ContentPage
     {
-        // Which is bind to ItemSource of the picker
-        //public string Title { get; set; } = "AAAAAAAAAAAAA";
+        
+        Dictionary<string, int> ListHT = new Dictionary<string, int>();
+        Dictionary<string, int> HopDong = new Dictionary<string, int>();
+        Dictionary<string, int> NguoiCT = new Dictionary<string, int>();
+       
+
+        int IDHT = -1;
+        int IDPLHD = -1;
+        int IDNGCT = -1;
+       
         public IList<string> CongViec { get; set; }
         CongViec _congviec;
         public ThemMoi()
         {
-            CongViec = new List<string>();
-            CongViec.Add("Baboon");
-            CongViec.Add("Capuchin Monkey");
-            //monkeyList.Add("Blue Monkey");
-            //monkeyList.Add("Squirrel Monkey");
-            //monkeyList.Add("Golden Lion Tamarin");
-            //monkeyList.Add("Howler Monkey");
-            //monkeyList.Add("Japanese Macaque");
-
-           //txtTenHT = new Picker { Title = "Select a monkey", TitleColor = Color.Red };
-           // txtTenHT.ItemsSource = CongViec;
+            
         }
         public ThemMoi(CongViec congviec)
         {
             InitializeComponent();
-            //BindingContext = new CongViec();
-            BindingContext = new AddCVViewModel(Navigation, congviec);
         }
-        
-           
-    
-
-
-        /*async void ButtonLuu_Clicked(object sender, EventArgs e)
-        {
-            CongViec cv = new CongViec
-            {
-                TEN_CONG_VIEC = txtTenCongViec.Text,
-                TEN = txtTenHT.Title,
-                MA_HOP_DONG = txtPLHĐ.Title,
-                //ID_HOP_DONG = Convert.ToInt16(txtMAHD.Text),
-                NGAY_BAT_DAU = (DateTime)DateStart.Date,
-                NGAY_KET_THUC = (DateTime)DateFinish.Date,
-                FullName = txtChuTri.Title,
-                //ID_KET_QUA_CV = Convert.ToInt16(txtKQ.Title),
-                KET_QUA_CV = txtKQ.Title,
-                GHI_CHU = txtGhiChu.Text
-            };
-            var httpClient = new HttpClient();
-            var json = JsonConvert.SerializeObject(cv);
-            HttpContent httpContent = new StringContent(json);
-            httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-            await httpClient.PutAsync(String.Format("https://qlcv-api.conveyor.cloud/api/AddNewCV"), httpContent);
-            //await DisplayAlert("Thông báo", "Thêm mới thành công", "OK");
-
-            bool answer = await DisplayAlert("Thông báo", "Bạn có chắc chắn muốn thêm dữ liệu mới?", "Yes", "No");
-            Debug.WriteLine("Answer: " + answer);
-            if (answer == true)
-            {
-                await DisplayAlert("Thông báo", "Bạn đã thêm dữ liệu mới thành công!", "OK");
-
-                await Navigation.PushAsync(new HienThiDSCV());
-            }
-        }*/
 
         private void ButtonHuy_Clicked(object sender, EventArgs e)
         {
@@ -89,7 +49,6 @@ namespace ListCongViec
         private async void txtTenHT_Focused(object sender, FocusEventArgs e)
         {
             var picker = (Picker)sender;
-            //call api
 
             HttpClientHandler clientHandler = new HttpClientHandler();
             clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
@@ -103,20 +62,18 @@ namespace ListCongViec
             IList<HeThong> cv = new List<HeThong>();
             cv = cvobj.DATA;
 
+            ListHT.Clear();
 
-
-            //var listHT = 
             foreach (var ht in cv)
             {
                 picker.Items.Add(ht.TEN);
-
+                ListHT.Add(ht.TEN, ht.ID);
             }
         }
 
         private async void txtPLHĐ_Focused(object sender, FocusEventArgs e)
         {
             var picker = (Picker)sender;
-            //call api
 
             HttpClientHandler clientHandler = new HttpClientHandler();
             clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
@@ -130,17 +87,18 @@ namespace ListCongViec
             IList<HopDong> cv = new List<HopDong>();
             cv = cvobj.DATA;
 
+            HopDong.Clear();
+
             foreach (var plhđ in cv)
             {
                 picker.Items.Add(plhđ.MA_HOP_DONG);
-
+                HopDong.Add(plhđ.MA_HOP_DONG, plhđ.ID);
             }
         }
 
         private async void txtNCT_Focused(object sender, FocusEventArgs e)
         {
             var picker = (Picker)sender;
-            //call api
 
             HttpClientHandler clientHandler = new HttpClientHandler();
             clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
@@ -154,51 +112,26 @@ namespace ListCongViec
             IList<NguoiCT> cv = new List<NguoiCT>();
             cv = cvobj.DATA;
 
+            NguoiCT.Clear();
+
             foreach (var nct in cv)
             {
                 picker.Items.Add(nct.FullName);
+                NguoiCT.Add(nct.FullName, nct.Id);
 
             }
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-
-            //var tencv = this.txtTenCongViec;
-            //var tenht = this.txtTenHT;
-            //var mahopdong = this.txtPLHĐ;
-            //var tenchutri = this.txtChuTri;
-            //var ngaybatdau = this.DateStart;
-            //var ngayketthuc = this.DateFinish;
-            //var ketquacv = this.txtKQ.Text;
-            //var ghichu = this.txtGhiChu.Text;
-
-
             if (_congviec != null)
             {
-                //_congviec.TEN_CONG_VIEC = TenCV;
-                //_congviec.ID_HE_THONG = Convert.ToInt32(TenHT);
-                //_congviec.ID_HOP_DONG = Convert.ToInt32(MaHopDong);
-                //_congviec.ID_NGUOI_CHU_TRI = Convert.ToInt32(TenChuTri);
-                //_congviec.NGAY_BAT_DAU = Convert.ToDateTime(NgayBatDau);
-                //_congviec.NGAY_KET_THUC = Convert.ToDateTime(NgayKetThuc);
-                //_congviec.ID_KET_QUA_CV = Convert.ToInt32(KetQua);
-                //_congviec.GHI_CHU = GhiChu;
-
-                //_congviec.TEN_CONG_VIEC = TenCV;
-                //_congviec.TEN = Convert.ToString(TenHT);
-                //_congviec.MA_HOP_DONG = Convert.ToString(MaHopDong);
-                //_congviec.FullName = Convert.ToString(TenChuTri);
-                //_congviec.NGAY_BAT_DAU = Convert.ToDateTime(NgayBatDau);
-                //_congviec.NGAY_KET_THUC = Convert.ToDateTime(NgayKetThuc);
-                //_congviec.KET_QUA_CV = KetQua;
-                //_congviec.GHI_CHU = GhiChu;
 
                 _congviec.TEN_CONG_VIEC = txtTenCongViec.Text;
-                _congviec.TEN = Convert.ToString(txtTenHT.Title);
-                _congviec.MA_HOP_DONG = txtPLHĐ.Title;
-                _congviec.FullName = txtChuTri.Title;
-                _congviec.ID_KET_QUA_CV = Convert.ToInt32(txtKQ.Text);
+                _congviec.ID_HE_THONG = IDHT;
+                _congviec.ID_HOP_DONG = IDPLHD;
+                _congviec.ID_NGUOI_CHU_TRI = IDNGCT;
+                 _congviec.ID_KET_QUA_CV = Convert.ToInt32(txtKQ.Text);
                 _congviec.NGAY_BAT_DAU = DateStart.Date;
                 _congviec.NGAY_KET_THUC = DateFinish.Date;
                 _congviec.GHI_CHU = txtGhiChu.Text;
@@ -206,44 +139,23 @@ namespace ListCongViec
             else
             {
                 _congviec = new CongViec();
-                //_congviec.TEN_CONG_VIEC = TenCV;
-                //_congviec.ID_HE_THONG = Convert.ToInt32(TenHT);
-                //_congviec.ID_HOP_DONG = Convert.ToInt32(MaHopDong);
-                //_congviec.ID_NGUOI_CHU_TRI = Convert.ToInt32(TenChuTri);
-                //_congviec.NGAY_BAT_DAU = Convert.ToDateTime(NgayBatDau);
-                //_congviec.NGAY_KET_THUC = Convert.ToDateTime(NgayKetThuc);
-                //_congviec.ID_KET_QUA_CV = Convert.ToInt32(KetQua);
-                //_congviec.GHI_CHU = GhiChu;
-
-
-                //_congviec.TEN_CONG_VIEC = TenCV;
-                //_congviec.TEN = Convert.ToString(TenHT);
-                //_congviec.MA_HOP_DONG = Convert.ToString(MaHopDong);
-                //_congviec.FullName = Convert.ToString(TenChuTri);
-                //_congviec.NGAY_BAT_DAU = Convert.ToDateTime(NgayBatDau);
-                //_congviec.NGAY_KET_THUC = Convert.ToDateTime(NgayKetThuc);
-                //_congviec.KET_QUA_CV = KetQua;
-                //_congviec.GHI_CHU = GhiChu;
-
+               
                 _congviec.TEN_CONG_VIEC = txtTenCongViec.Text;
-                _congviec.TEN = Convert.ToString(txtTenHT);
-                _congviec.MA_HOP_DONG = Convert.ToString(txtPLHĐ);
-                _congviec.FullName = Convert.ToString(txtChuTri);
-                _congviec.ID_KET_QUA_CV = Convert.ToInt32(txtKQ.Text);
+                _congviec.ID_HE_THONG = IDHT;
+                _congviec.ID_HOP_DONG = IDPLHD;
+                _congviec.ID_NGUOI_CHU_TRI = IDNGCT;
+                 _congviec.ID_KET_QUA_CV = Convert.ToInt32(txtKQ.Text);
                 _congviec.NGAY_BAT_DAU = DateStart.Date;
                 _congviec.NGAY_KET_THUC = DateFinish.Date;
                 _congviec.GHI_CHU = txtGhiChu.Text;
 
             }
-           
+           if (Convert.ToInt32(txtKQ.Text)  > 3 )
+           {
+                await DisplayAlert("Thông báo", "Chỉ được nhập từ 1 đến 3", "OK");
+                return;
 
-            /*var httpClient = new HttpClient();
-            var json = JsonConvert.SerializeObject(_congviec);
-            HttpContent httpContent = new StringContent(json);
-            httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-            await httpClient.PutAsync(String.Format("https://qlcv-api.conveyor.cloud/api/AddNewCV"), httpContent);
-            await Navigation.PushAsync(new HienThiDSCV());*/
-
+           }    
             bool answer = await DisplayAlert("Thông báo", "Bạn có chắc chắn muốn thêm dữ liệu mới?", "Yes", "No");
             Debug.WriteLine("Answer: " + answer);
             if (answer == true)
@@ -252,21 +164,15 @@ namespace ListCongViec
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(url + "api/AddNewCV");
 
-                //StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsJsonAsync<CongViec>("AddNewCV", _congviec);
 
-                //Response responseData = JsonConvert.DeserializeObject<Response>(result);
                 if (response.IsSuccessStatusCode)
                 {
                     string result = await response.Content.ReadAsStringAsync();
                     await Navigation.PopAsync();
 
                 }
-                await DisplayAlert("Thông báo", "Bạn đã thêm dữ liệu mới thành công!", "OK");
-
-                //await Navigation.PushAsync(new HienThiDSCV());
-
-                
+                await DisplayAlert("Thông báo", "Bạn đã thêm dữ liệu mới thành công!", "OK");         
             }
         }
         string _tencv;
@@ -292,7 +198,7 @@ namespace ListCongViec
         {
             get
             {
-                _tenht = txtTenHT;
+                _tenht.SelectedItem = txtTenHT.SelectedItem;
                 return _tenht;
             }
             set
@@ -310,7 +216,7 @@ namespace ListCongViec
         {
             get
             {
-                _mahopdong = txtPLHĐ;
+                _mahopdong.SelectedItem = txtPLHĐ.SelectedItem;
                 return _mahopdong;
             }
             set
@@ -328,7 +234,7 @@ namespace ListCongViec
         {
             get
             {
-                _tenchutri = txtChuTri;
+                _tenchutri.SelectedItem =txtChuTri.SelectedItem;
                 return _tenchutri;
             }
             set
@@ -412,6 +318,51 @@ namespace ListCongViec
                 }
             }
         }
+
+        private void txtTenHT_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var picker = (Picker)sender;
+
+            if (picker.SelectedIndex == -1)
+            {
+                IDHT = -1;
+            }
+            else
+            {
+                var htName = picker.Items[picker.SelectedIndex];
+                IDHT = ListHT[htName];
+            }
+        }
+
+        private void txtPLHĐ_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var picker = (Picker)sender;
+
+            if (picker.SelectedIndex == -1)
+            {
+                IDPLHD = -1;
+            }
+            else
+            {
+                var plhdName = picker.Items[picker.SelectedIndex];
+                IDPLHD = HopDong[plhdName];
+            }
+        }
+
+        private void txtChuTri_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var picker = (Picker)sender;
+
+            if (picker.SelectedIndex == -1)
+            {
+                IDNGCT = -1;
+            }
+            else
+            {
+                var nctName = picker.Items[picker.SelectedIndex];
+                IDNGCT = NguoiCT[nctName];
+            }
+        }
     }
 
     public class NumericValidationBehavior : Behavior<Entry>
@@ -439,8 +390,6 @@ namespace ListCongViec
                 ((Entry)sender).Text = isValid ? args.NewTextValue : args.NewTextValue.Remove(args.NewTextValue.Length - 1);
             }
         }
-
-
     }
 }
 

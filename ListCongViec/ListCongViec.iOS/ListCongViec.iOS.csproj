@@ -166,4 +166,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\unnamed.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\trash.png" />
+  </ItemGroup>
 </Project>
