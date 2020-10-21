@@ -20,7 +20,7 @@ namespace ListCongViec
         public HienThiDSCV()
         {
             InitializeComponent();
-            GetDSCV(); 
+            GetDSCV();
         }
         async void ButtonDangXuat_Clicked(object sender, EventArgs e)
         {
@@ -28,7 +28,7 @@ namespace ListCongViec
             Debug.WriteLine("Answer: " + answer);
             if (answer == true)
             {
-                await Navigation.PushAsync(new MainPage());
+                await Navigation.PopAsync();
             }
         }
         public async void GetDSCV()
@@ -68,7 +68,7 @@ namespace ListCongViec
             HttpClientHandler clientHandler = new HttpClientHandler();
             clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
             HttpClient client = new HttpClient(clientHandler);
-            
+
             var response = await client.GetAsync("https://qlcv-api.conveyor.cloud/api/GetListCV");
             string listCVJSON = await response.Content.ReadAsStringAsync();
             listCV cvobj = new listCV();
@@ -112,15 +112,15 @@ namespace ListCongViec
             Navigation.PushAsync(new EditCV());
         }
 
-        private  async void TapGestureRecognizer_Tapped_Edit(object sender, EventArgs e)
+        private async void TapGestureRecognizer_Tapped_Edit(object sender, EventArgs e)
         {
-           
+
             TappedEventArgs tappedEventArgs = (TappedEventArgs)e;
             var listCV = LV.ItemsSource as List<CongViec>;
-            CongViec cv = listCV.Where(x => x.ID == (int)tappedEventArgs.Parameter).FirstOrDefault();      
+            CongViec cv = listCV.Where(x => x.ID == (int)tappedEventArgs.Parameter).FirstOrDefault();
             await Navigation.PushAsync(new EditCV(cv));
-          
-            
+
+
         }
 
         private void LV_Refreshing(object sender, EventArgs e)
@@ -135,7 +135,7 @@ namespace ListCongViec
             CongViec cv = listCV.Where(x => x.ID == (int)tappedEventArgs.Parameter).FirstOrDefault();
 
             CongViec _congviec = new CongViec();
-            if(_congviec != null)
+            if (_congviec != null)
             {
                 _congviec.ID = cv.ID;
                 _congviec.TT_XOA = cv.TT_XOA;
@@ -152,7 +152,7 @@ namespace ListCongViec
 
                 if (response.IsSuccessStatusCode)
                 {
-                    string result = await response.Content.ReadAsStringAsync(); 
+                    string result = await response.Content.ReadAsStringAsync();
                 }
                 await DisplayAlert("Thông báo", "Bạn đã xóa dữ liệu thành công!", "OK");
             }

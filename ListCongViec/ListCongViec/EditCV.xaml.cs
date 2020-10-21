@@ -21,12 +21,13 @@ namespace ListCongViec
         Dictionary<string, int> HopDong = new Dictionary<string, int>();
         Dictionary<string, int> NguoiCT = new Dictionary<string, int>();
 
-
         int IDHT = -1;
         int IDPLHD = -1;
         int IDNGCT = -1;
+
         CongViec _congviec = new CongViec();
-       
+
+
         public EditCV(CongViec cv = null)
         {
             _congviec.ID = null;
@@ -203,7 +204,7 @@ namespace ListCongViec
         {
             if (_congviec != null)
             {
-                
+
                 _congviec.TEN_CONG_VIEC = txtTenCongViec.Text;
                 _congviec.ID_HE_THONG = IDHT;
                 _congviec.ID_HOP_DONG = IDPLHD;
@@ -214,7 +215,7 @@ namespace ListCongViec
                 _congviec.GHI_CHU = txtGhiChu.Text;
             }
 
-            bool answer = await DisplayAlert("Thông báo", "Bạn có chắc chắn muốn sửa dữ liệu này?", "Yes", "No");
+            bool answer = await DisplayAlert("Thông báo", "Bạn có chắc chắn muốn cập nhật dữ liệu không?", "Yes", "No");
             Debug.WriteLine("Answer: " + answer);
             if (answer == true)
             {
@@ -230,7 +231,7 @@ namespace ListCongViec
                     await Navigation.PopAsync();
 
                 }
-                await DisplayAlert("Thông báo", "Bạn đã sửa dữ liệu thành công!", "OK");
+                await DisplayAlert("Thông báo", "Bạn đã cập nhật dữ liệu thành công!", "OK");
             }
         }
         string _tencv;

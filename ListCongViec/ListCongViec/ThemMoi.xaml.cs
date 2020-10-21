@@ -20,21 +20,21 @@ namespace ListCongViec
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ThemMoi : ContentPage
     {
-        
+
         Dictionary<string, int> ListHT = new Dictionary<string, int>();
         Dictionary<string, int> HopDong = new Dictionary<string, int>();
         Dictionary<string, int> NguoiCT = new Dictionary<string, int>();
-       
+
 
         int IDHT = -1;
         int IDPLHD = -1;
         int IDNGCT = -1;
-       
+
         public IList<string> CongViec { get; set; }
         CongViec _congviec;
         public ThemMoi()
         {
-            
+
         }
         public ThemMoi(CongViec congviec)
         {
@@ -131,7 +131,7 @@ namespace ListCongViec
                 _congviec.ID_HE_THONG = IDHT;
                 _congviec.ID_HOP_DONG = IDPLHD;
                 _congviec.ID_NGUOI_CHU_TRI = IDNGCT;
-                 _congviec.ID_KET_QUA_CV = Convert.ToInt32(txtKQ.Text);
+                _congviec.ID_KET_QUA_CV = Convert.ToInt32(txtKQ.Text);
                 _congviec.NGAY_BAT_DAU = DateStart.Date;
                 _congviec.NGAY_KET_THUC = DateFinish.Date;
                 _congviec.GHI_CHU = txtGhiChu.Text;
@@ -139,23 +139,48 @@ namespace ListCongViec
             else
             {
                 _congviec = new CongViec();
-               
+
                 _congviec.TEN_CONG_VIEC = txtTenCongViec.Text;
                 _congviec.ID_HE_THONG = IDHT;
                 _congviec.ID_HOP_DONG = IDPLHD;
                 _congviec.ID_NGUOI_CHU_TRI = IDNGCT;
-                 _congviec.ID_KET_QUA_CV = Convert.ToInt32(txtKQ.Text);
+                _congviec.ID_KET_QUA_CV = Convert.ToInt32(txtKQ.Text);
                 _congviec.NGAY_BAT_DAU = DateStart.Date;
                 _congviec.NGAY_KET_THUC = DateFinish.Date;
                 _congviec.GHI_CHU = txtGhiChu.Text;
 
             }
-           if (Convert.ToInt32(txtKQ.Text)  > 3 )
-           {
+            if (string.IsNullOrEmpty(txtTenCongViec.Text))
+            {
+                await DisplayAlert("Thông báo", "Không được để trống tên công việc", "Ok");
+                return;
+            }
+            if (IDHT == -1)
+            {
+                await DisplayAlert("Thông báo", "Không được để trống tên hệ thống", "Ok");
+                return;
+            }
+            if (IDPLHD == -1)
+            {
+                await DisplayAlert("Thông báo", "Không được để trống phụ lục hợp đồng", "Ok");
+                return;
+            }
+            if (IDNGCT == -1)
+            {
+                await DisplayAlert("Thông báo", "Không được để trống tên người chủ trì", "Ok");
+                return;
+            }
+            if (string.IsNullOrEmpty(txtKQ.Text))
+            {
+                await DisplayAlert("Thông báo", "Không được để trống kết quả", "Ok");
+                return;
+            }
+            if (Convert.ToInt32(txtKQ.Text) > 3)
+            {
                 await DisplayAlert("Thông báo", "Chỉ được nhập từ 1 đến 3", "OK");
                 return;
 
-           }    
+            }
             bool answer = await DisplayAlert("Thông báo", "Bạn có chắc chắn muốn thêm dữ liệu mới?", "Yes", "No");
             Debug.WriteLine("Answer: " + answer);
             if (answer == true)
@@ -172,7 +197,7 @@ namespace ListCongViec
                     await Navigation.PopAsync();
 
                 }
-                await DisplayAlert("Thông báo", "Bạn đã thêm dữ liệu mới thành công!", "OK");         
+                await DisplayAlert("Thông báo", "Bạn đã thêm dữ liệu mới thành công!", "OK");
             }
         }
         string _tencv;
@@ -234,7 +259,7 @@ namespace ListCongViec
         {
             get
             {
-                _tenchutri.SelectedItem =txtChuTri.SelectedItem;
+                _tenchutri.SelectedItem = txtChuTri.SelectedItem;
                 return _tenchutri;
             }
             set

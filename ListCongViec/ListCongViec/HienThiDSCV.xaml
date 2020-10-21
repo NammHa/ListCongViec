@@ -6,7 +6,7 @@
     <NavigationPage.TitleView>
         <Label Text="DANH SÁCH CÔNG VIỆC" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="25"></Label>
     </NavigationPage.TitleView>
-    <ScrollView>
+    <ScrollView Orientation="Both">
         <StackLayout>
             <Grid >
                 <Grid.ColumnDefinitions>
@@ -17,12 +17,18 @@
                 </Grid.RowDefinitions>
 
                 <Button Text="Đăng xuất"
+                        WidthRequest="200"
+                        HeightRequest="60"
+                        HorizontalOptions="EndAndExpand"
                         BackgroundColor="#d45050"
                         FontAttributes="Bold" 
                         Clicked="ButtonDangXuat_Clicked" 
                         Grid.Column="0" 
                         Grid.Row="0"/>
                 <Button Text="Thêm mới"
+                        WidthRequest="200"
+                        HeightRequest="60"
+                        HorizontalOptions="StartAndExpand"
                         BackgroundColor="#14b6e3"
                         FontAttributes="Bold" 
                         Clicked="btnAdd_Clicked" 
@@ -37,19 +43,19 @@
                TextColor="Black"/>
             <SearchBar TextChanged="SearchBar_TextChanged" Placeholder="Nhập thông tin cần tìm kiếm"/>
 
-            <Frame BackgroundColor="#5190f5" BorderColor="DarkSlateGray" HeightRequest="60" Padding="0" >
+            <Frame BackgroundColor="#5190f5" BorderColor="DarkSlateGray" HeightRequest="50" Padding="0">
                 <Grid Padding="0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="2.5*"/>
-                        <ColumnDefinition Width="2.5*"/>
-                        <ColumnDefinition Width="2.5*"/>
-                        <ColumnDefinition Width="2.5*"/>
-                        <ColumnDefinition Width="2.5*"/>
-                        <ColumnDefinition Width="2.5*"/>
-                        <ColumnDefinition Width="2.5*"/>
-                        <ColumnDefinition Width="2.5*"/>
-                        <ColumnDefinition Width="2.5*"/>
-                        <ColumnDefinition Width="2.5*"/>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="50"/>
                     </Grid.ColumnDefinitions>
 
                     <Label Margin="10,0,10,0" Text="Tên công việc" VerticalOptions="Center" FontAttributes="Bold" Grid.Column="0" HorizontalTextAlignment="Center" FontSize="15"/>
@@ -62,7 +68,7 @@
                     <Label Margin="10,0,10,0" Text="Ghi chú" VerticalOptions="Center"  FontAttributes="Bold" Grid.Column="7" HorizontalTextAlignment="Center" FontSize="15"/>
                     <Label Margin="10,0,10,0" Text="Sửa" VerticalOptions="Center"  FontAttributes="Bold" Grid.Column="8" HorizontalTextAlignment="Center" FontSize="15"/>
                     <Label Margin="10,0,10,0" Text="Xóa" VerticalOptions="Center"  FontAttributes="Bold" Grid.Column="9" HorizontalTextAlignment="Center" FontSize="15"/>
-                    
+
                     <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="0" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
                     <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
                     <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="2" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
@@ -73,27 +79,27 @@
                     <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="7" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
                     <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="8" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
                     <BoxView BackgroundColor="DarkSlateGray" WidthRequest="1" Grid.Column="9" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" />
-                    
+
                 </Grid>
             </Frame>
             <ListView x:Name="LV" SeparatorVisibility="None" SelectionMode="None" 
-                      HasUnevenRows="False" IsPullToRefreshEnabled="True"  RowHeight="125" Refreshing="LV_Refreshing">
+                      HasUnevenRows="False" IsPullToRefreshEnabled="True"  RowHeight="100" Refreshing="LV_Refreshing">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <Frame  Padding="0" BorderColor="DarkSlateGray">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="2.5*"/>
-                                        <ColumnDefinition Width="2.5*"/>
-                                        <ColumnDefinition Width="2.5*"/>
-                                        <ColumnDefinition Width="2.5*"/>
-                                        <ColumnDefinition Width="2.5*"/>
-                                        <ColumnDefinition Width="2.5*"/>
-                                        <ColumnDefinition Width="2.5*"/>
-                                        <ColumnDefinition Width="2.5*"/>
-                                        <ColumnDefinition Width="2.5*"/>
-                                        <ColumnDefinition Width="2.5*"/>
+                                        <ColumnDefinition Width="150"/>
+                                        <ColumnDefinition Width="150"/>
+                                        <ColumnDefinition Width="60"/>
+                                        <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition Width="150"/>
+                                        <ColumnDefinition Width="50"/>
+                                        <ColumnDefinition Width="50"/>
                                     </Grid.ColumnDefinitions>
                                     <Label Margin="10,0,10,0" Text="{Binding TEN_CONG_VIEC}" VerticalOptions="Center" Grid.Column="0"  TextColor="Black"/>
                                     <Label Margin="10,0,10,0" Text="{Binding TEN}"   VerticalOptions="Center" Grid.Column="1" TextColor="Black" />

@@ -21,24 +21,32 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Label Text="Tên công việc" 
-                   TextColor="Black" 
+                <Label Text="Tên công việc"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="EndAndExpand" 
+                   TextColor="Black"
+                   FontAttributes="Bold"
                    FontSize="20"
                    Grid.Row="0"
                    Grid.ColumnSpan="2"/>
-                <Entry Placeholder="Mời nhập tên công việc"
+                <Entry Placeholder="                        Mời nhập tên công việc"
                    Grid.ColumnSpan="2"
                    Grid.Row="1"
                    x:Name="txtTenCongViec"/>
-                <Label  Text="Tên hệ thống" 
-                    TextColor="Black" 
+                <Label  Text="Tên hệ thống"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="EndAndExpand" 
+                    TextColor="Black"
+                    FontAttributes="Bold"
                     FontSize="20"
                     Grid.Column="0"
                     Grid.Row="2"/>
                 <Picker 
                     TitleColor="Black"
                     Title="Click to choose"
+                    HorizontalOptions="CenterAndExpand"
                     Grid.Column="0"
                     Grid.Row="3"
                     x:Name="txtTenHT"
@@ -47,12 +55,16 @@
                     ItemDisplayBinding="{x:Binding TEN}"
                     SelectedIndexChanged="txtTenHT_SelectedIndexChanged"
                     />
-                <Label Text="PLHĐ" 
+                <Label Text="PLHĐ"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="EndAndExpand"
+                   FontAttributes="Bold"
                    TextColor="Black" 
                    FontSize="20"
                    Grid.Column="1"
                    Grid.Row = "2"/>
                 <Picker TitleColor="Black"
+                    HorizontalOptions="CenterAndExpand"
                     Title="Click to choose"
                     Grid.Column="1"
                     Grid.Row="3"
@@ -63,31 +75,43 @@
                     SelectedIndexChanged="txtPLHĐ_SelectedIndexChanged"
                      />
                 <Label Text="Ngày bắt đầu"
+                   FontAttributes="Bold"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="EndAndExpand"
                    TextColor="Black" 
                    FontSize="20"
                    Grid.Column="0"
                    Grid.Row = "4"/>
                 <DatePicker MinimumDate="1/1/2020"
                         MaximumDate="12/31/2020"
+                        HorizontalOptions="CenterAndExpand"
                         Grid.Column="0"
                         Grid.Row="5" 
                         x:Name="DateStart"/>
                 <Label Text="Ngày kết thúc"
+                   FontAttributes="Bold"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="EndAndExpand"
                    TextColor="Black" 
                    FontSize="20"
                    Grid.Column="1"
                    Grid.Row = "4"/>
                 <DatePicker MinimumDate="1/1/2020"
                         MaximumDate="12/31/2020"
+                        HorizontalOptions="CenterAndExpand"
                         Grid.Column="1"
                         Grid.Row="5"
                         x:Name="DateFinish"/>
-                <Label Text="Người chủ trì" 
+                <Label Text="Người chủ trì"
+                   FontAttributes="Bold"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="EndAndExpand"
                    TextColor="Black" 
                    FontSize="20"
                    Grid.Column="0"
                    Grid.Row = "6"/>
                 <Picker TitleColor="Black"
+                    HorizontalOptions="CenterAndExpand"
                     Title="Click to choose"
                     Grid.Column="0"
                     Grid.Row="7"
@@ -96,11 +120,10 @@
                     ItemsSource="{x:Binding CongViec}" 
                     ItemDisplayBinding="{x:Binding FullName}"
                     SelectedIndexChanged="txtChuTri_SelectedIndexChanged"/>
-                <Label Text="Kết quả(*)
-                       
-                       
-                             1: Hoàn thành, 2: Hủy, 3: Đang làm" 
-                       
+                <Label Text="Kết quả(*)" 
+                   FontAttributes="Bold"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="EndAndExpand"    
                    TextColor="Red" 
                    FontSize="20"
                    Grid.Column="1"
@@ -108,18 +131,22 @@
                    />
                 <Entry Grid.Column="1"
                        Grid.Row="7"
+                       HorizontalOptions="CenterAndExpand"
                        x:Name="txtKQ"
                        Placeholder="Mời nhập kết quả">
                     <Entry.Behaviors>
                         <local:NumericValidationBehavior />
                     </Entry.Behaviors>
                 </Entry>
-                <Label Text="Ghi chú" 
+                <Label Text="Ghi chú"
+                   FontAttributes="Bold"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="EndAndExpand"
                    TextColor="Black" 
                    FontSize="20"
                    Grid.ColumnSpan="2"
                    Grid.Row = "8"/>
-                <Entry Placeholder="Mời nhập ghi chú"
+                <Entry Placeholder="                             Mời nhập ghi chú"
                    Grid.ColumnSpan="2"
                    Grid.Row="9"
                    x:Name="txtGhiChu"/>
@@ -139,6 +166,13 @@
                     Grid.Column="1"
                     Grid.Row="10"
                     />
+                <Label Text="(*)1: Hoàn thành, 2: Hủy, 3: Đang làm"
+                       HorizontalOptions="CenterAndExpand"
+                       TextColor="Red"
+                       FontSize ="20"
+                       Grid.ColumnSpan="2"
+                       Grid.Row="11"/>
+
             </Grid>
         </StackLayout>
     </ScrollView>
