@@ -45,7 +45,6 @@ namespace ListCongViec
         {
             Navigation.PushAsync(new HienThiDSCV());
         }
-
         private async void txtTenHT_Focused(object sender, FocusEventArgs e)
         {
             var picker = (Picker)sender;
@@ -194,10 +193,10 @@ namespace ListCongViec
                 if (response.IsSuccessStatusCode)
                 {
                     string result = await response.Content.ReadAsStringAsync();
+                    await DisplayAlert("Thông báo", "Bạn đã thêm dữ liệu mới thành công!", "OK");
                     await Navigation.PopAsync();
 
                 }
-                await DisplayAlert("Thông báo", "Bạn đã thêm dữ liệu mới thành công!", "OK");
             }
         }
         string _tencv;

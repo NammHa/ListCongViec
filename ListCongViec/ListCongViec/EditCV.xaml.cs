@@ -21,10 +21,10 @@ namespace ListCongViec
         Dictionary<string, int> HopDong = new Dictionary<string, int>();
         Dictionary<string, int> NguoiCT = new Dictionary<string, int>();
 
-        int IDHT = -1;
-        int IDPLHD = -1;
-        int IDNGCT = -1;
-
+        int? IDHT = -1;
+        int? IDPLHD = -1;
+        int? IDNGCT = -1;
+        
         CongViec _congviec = new CongViec();
 
 
@@ -37,13 +37,15 @@ namespace ListCongViec
                 _congviec.ID = cv.ID;
                 this.txtTenCongViec.Text = cv.TEN_CONG_VIEC;
                 this.txtTenHT.Title = cv.TEN;
-                this.txtTenHT.Title = cv.TEN;
                 this.txtPLHĐ.Title = cv.MA_HOP_DONG;
                 this.DateStart.Date = (DateTime)cv.NGAY_BAT_DAU;
                 this.DateFinish.Date = (DateTime)cv.NGAY_KET_THUC;
                 this.txtChuTri.Title = cv.FullName;
                 this.txtKQ.Text = Convert.ToString(cv.ID_KET_QUA_CV);
                 this.txtGhiChu.Text = cv.GHI_CHU;
+                IDHT = cv.ID_HE_THONG;
+                IDPLHD = cv.ID_HOP_DONG;
+                IDNGCT = cv.ID_NGUOI_CHU_TRI;
             }
         }
 
@@ -228,10 +230,10 @@ namespace ListCongViec
                 if (response.IsSuccessStatusCode)
                 {
                     string result = await response.Content.ReadAsStringAsync();
+                    await DisplayAlert("Thông báo", "Bạn đã cập nhật dữ liệu thành công!", "OK");
                     await Navigation.PopAsync();
 
                 }
-                await DisplayAlert("Thông báo", "Bạn đã cập nhật dữ liệu thành công!", "OK");
             }
         }
         string _tencv;

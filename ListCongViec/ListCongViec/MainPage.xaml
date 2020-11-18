@@ -13,8 +13,8 @@
                    FontSize="25"
                    HorizontalTextAlignment="Center"
                    TextColor="Black"/>
-            <Entry Placeholder="UserName" Margin="10"/>
-            <Entry Placeholder="Password" Margin="10"/>
+            <Entry Placeholder="UserName" Margin="10" x:Name="txtUser"/>
+            <Entry Placeholder="Password" Margin="10" x:Name="txtPassword" IsPassword="True"/>
             <CheckBox Margin="10,0,0,0" Color="Black"/>
             <Label Text="Remember me" 
                    Margin="15,0,0,0" 

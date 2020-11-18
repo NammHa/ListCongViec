@@ -21,6 +21,7 @@ namespace ListCongViec
         {
             InitializeComponent();
             GetDSCV();
+            StartTimer();
         }
         async void ButtonDangXuat_Clicked(object sender, EventArgs e)
         {
@@ -62,6 +63,17 @@ namespace ListCongViec
                 }
             }
             LV.ItemsSource = cv;
+        }
+        public void StartTimer()
+        {
+            Device.StartTimer(new TimeSpan(0, 0, 1), () =>
+              {
+                  Device.BeginInvokeOnMainThread(() =>
+                  {
+                      GetDSCV();
+                  });
+                  return true;
+              });
         }
         public async void SearchBar_TextChanged(object Ssender, TextChangedEventArgs e)
         {
