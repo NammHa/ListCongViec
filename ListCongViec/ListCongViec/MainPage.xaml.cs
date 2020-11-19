@@ -123,5 +123,10 @@ namespace ListCongViec
         {
             Navigation.PushAsync(new QuenMatKhau());
         }
+       public void ShowPass(object sender, EventArgs args)
+       {
+           txtPassword.IsPassword = txtPassword.IsPassword ? false : true;
+       }
+        
     }
 }

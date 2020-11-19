@@ -14,13 +14,18 @@
                    HorizontalTextAlignment="Center"
                    TextColor="Black"/>
             <Entry Placeholder="UserName" Margin="10" x:Name="txtUser"/>
-            <Entry Placeholder="Password" Margin="10" x:Name="txtPassword" IsPassword="True"/>
-            <CheckBox Margin="10,0,0,0" Color="Black"/>
-            <Label Text="Remember me" 
+            <Entry Placeholder="Password" Margin="10" x:Name="txtPassword" IsPassword="True" />
+            <Image Source="eye.png" HorizontalOptions="End" VerticalOptions="Center" WidthRequest="20" HeightRequest="20" Margin="0,-50,15,0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ShowPass" NumberOfTapsRequired="1" />
+                </Image.GestureRecognizers>
+            </Image>
+            <!--<CheckBox Margin="10,0,0,0" Color="Black"/>-->
+            <!--<Label Text="Remember me" 
                    Margin="15,0,0,0" 
                    FontSize="15"
                    TextColor="Black" 
-                   FontAttributes="Bold"/>
+                   FontAttributes="Bold"/>-->
             <Button Text="Đăng nhập" 
                     Margin="10" 
                     HorizontalOptions="CenterAndExpand" 
